@@ -86,20 +86,23 @@ class GmailSender:
             )
 
             message_id: str = sent.get("id", "")
+            masked_to = to.value[:3] + "***" if len(to.value) > 3 else "***"
             logger.info(
                 "Email sent successfully via Gmail. message_id=%s, to=%s",
                 message_id,
-                to.value,
+                masked_to,
             )
             return SendResult(success=True, message_id=message_id)
 
         except HttpError as exc:
             error_detail = str(exc)
-            logger.error("Gmail API error sending email to %s: %s", to.value, error_detail)
+            masked_to = to.value[:3] + "***" if len(to.value) > 3 else "***"
+            logger.error("Gmail API error sending email to %s: %s", masked_to, error_detail)
             return SendResult(success=False, error=error_detail)
         except Exception as exc:
             error_detail = f"{type(exc).__name__}: {exc}"
-            logger.error("Unexpected error sending email to %s: %s", to.value, error_detail)
+            masked_to = to.value[:3] + "***" if len(to.value) > 3 else "***"
+            logger.error("Unexpected error sending email to %s: %s", masked_to, error_detail)
             return SendResult(success=False, error=error_detail)
 
     # -- Internal helpers ---------------------------------------------------

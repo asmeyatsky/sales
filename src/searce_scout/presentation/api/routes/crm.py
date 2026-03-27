@@ -22,6 +22,7 @@ from searce_scout.presentation.api.schemas.api_schemas import (
     CRMPullRequest,
     CRMPushRequest,
     CRMResolveConflictRequest,
+    PaginatedResponse,
 )
 
 router = APIRouter(prefix="/api/v1/crm", tags=["crm"])
@@ -66,9 +67,18 @@ async def resolve_conflict(
 
 
 @router.get("/conflicts")
-async def list_conflicts(request: Request) -> list[dict]:
+async def list_conflicts(
+    request: Request, offset: int = 0, limit: int = 50
+) -> PaginatedResponse[dict]:
     """List all CRM records with CONFLICT status."""
     container = request.app.state.container
     query = ListConflictsQuery()
     results = await container.list_conflicts_handler.execute(query)
-    return [r.model_dump() for r in results]
+    all_items = [r.model_dump() for r in results]
+    total = len(all_items)
+    return PaginatedResponse(
+        items=all_items[offset : offset + limit],
+        total=total,
+        offset=offset,
+        limit=limit,
+    )

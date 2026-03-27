@@ -26,6 +26,7 @@ from searce_scout.account_intelligence.application.queries.list_buying_signals i
 
 from searce_scout.presentation.api.schemas.api_schemas import (
     ErrorResponse,
+    PaginatedResponse,
     ResearchRequest,
     ResearchResponse,
 )
@@ -54,13 +55,20 @@ async def research_account(body: ResearchRequest, request: Request) -> ResearchR
 
 @router.get("/migration-targets")
 async def list_migration_targets(
-    request: Request, min_score: float = 0.7
-) -> list[dict]:
+    request: Request, min_score: float = 0.7, offset: int = 0, limit: int = 50
+) -> PaginatedResponse[dict]:
     """List accounts that are migration targets above the given score."""
     container = request.app.state.container
     query = FindMigrationTargetsQuery(min_score=min_score)
     results = await container.find_migration_targets_handler.execute(query)
-    return [r.model_dump() for r in results]
+    all_items = [r.model_dump() for r in results]
+    total = len(all_items)
+    return PaginatedResponse(
+        items=all_items[offset : offset + limit],
+        total=total,
+        offset=offset,
+        limit=limit,
+    )
 
 
 @router.get("/{account_id}")

@@ -179,14 +179,16 @@ class StakeholderRepository:
                 try:
                     email = EmailAddress(value=m.email)
                 except Exception:
-                    logger.debug("Invalid email in DB row: %s", m.email)
+                    masked_email = m.email[:3] + "***" if len(m.email) > 3 else "***"
+                    logger.debug("Invalid email in DB row: %s", masked_email)
 
             phone: PhoneNumber | None = None
             if m.phone:
                 try:
                     phone = PhoneNumber(value=m.phone)
                 except Exception:
-                    logger.debug("Invalid phone in DB row: %s", m.phone)
+                    masked_phone = m.phone[:3] + "***" if len(m.phone) > 3 else "***"
+                    logger.debug("Invalid phone in DB row: %s", masked_phone)
 
             contact_info = ContactInfo(
                 email=email,

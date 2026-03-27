@@ -9,8 +9,28 @@ application layer.
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Generic, TypeVar
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
+
+T = TypeVar("T")
+
+
+# ---------------------------------------------------------------------------
+# Pagination
+# ---------------------------------------------------------------------------
+
+
+class PaginationParams(BaseModel):
+    offset: int = 0
+    limit: int = 50
+
+
+class PaginatedResponse(BaseModel, Generic[T]):
+    items: list[T]
+    total: int
+    offset: int
+    limit: int
 
 
 # ---------------------------------------------------------------------------
@@ -19,6 +39,18 @@ from pydantic import BaseModel, Field
 
 
 class ResearchRequest(BaseModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "examples": [
+                {
+                    "company_name": "Acme Corp",
+                    "website": "https://acme.com",
+                    "ticker": "ACME",
+                }
+            ]
+        }
+    )
+
     company_name: str = Field(..., description="Name of the target company")
     website: str | None = Field(default=None, description="Company website URL")
     ticker: str | None = Field(default=None, description="Stock ticker symbol")
@@ -38,6 +70,17 @@ class ResearchResponse(BaseModel):
 
 
 class OutreachRequest(BaseModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "examples": [
+                {
+                    "account_id": "acc_12345",
+                    "tone": "PROFESSIONAL_CONSULTANT",
+                }
+            ]
+        }
+    )
+
     account_id: str = Field(..., description="Account to start outreach for")
     tone: str = Field(
         default="PROFESSIONAL_CONSULTANT",
@@ -51,6 +94,17 @@ class OutreachRequest(BaseModel):
 
 
 class DeckRequest(BaseModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "examples": [
+                {
+                    "account_id": "acc_12345",
+                    "offering": "Cloud Migration",
+                }
+            ]
+        }
+    )
+
     account_id: str = Field(..., description="Account to generate a deck for")
     offering: str | None = Field(
         default=None, description="Searce offering to focus on"

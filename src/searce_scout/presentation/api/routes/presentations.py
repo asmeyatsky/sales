@@ -18,7 +18,7 @@ from searce_scout.presentation_gen.application.queries.list_decks_for_account im
     ListDecksForAccountQuery,
 )
 
-from searce_scout.presentation.api.schemas.api_schemas import DeckRequest
+from searce_scout.presentation.api.schemas.api_schemas import DeckRequest, PaginatedResponse
 
 router = APIRouter(prefix="/api/v1/decks", tags=["presentations"])
 
@@ -57,12 +57,21 @@ async def generate_deck(body: DeckRequest, request: Request) -> dict:
 
 
 @router.get("/account/{account_id}")
-async def list_decks_for_account(account_id: str, request: Request) -> list[dict]:
+async def list_decks_for_account(
+    account_id: str, request: Request, offset: int = 0, limit: int = 50
+) -> PaginatedResponse[dict]:
     """List all decks generated for an account."""
     container = request.app.state.container
     query = ListDecksForAccountQuery(account_id=account_id)
     results = await container.list_decks_for_account_handler.execute(query)
-    return [r.model_dump() for r in results]
+    all_items = [r.model_dump() for r in results]
+    total = len(all_items)
+    return PaginatedResponse(
+        items=all_items[offset : offset + limit],
+        total=total,
+        offset=offset,
+        limit=limit,
+    )
 
 
 @router.get("/{deck_id}")

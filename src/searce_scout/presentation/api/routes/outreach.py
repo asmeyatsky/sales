@@ -28,7 +28,7 @@ from searce_scout.outreach.application.queries.list_active_sequences import (
     ListActiveSequencesQuery,
 )
 
-from searce_scout.presentation.api.schemas.api_schemas import OutreachRequest
+from searce_scout.presentation.api.schemas.api_schemas import OutreachRequest, PaginatedResponse
 
 router = APIRouter(prefix="/api/v1/sequences", tags=["outreach"])
 
@@ -69,12 +69,21 @@ async def stop_sequence(sequence_id: str, body: dict, request: Request) -> dict:
 
 
 @router.get("/active")
-async def list_active_sequences(request: Request) -> list[dict]:
+async def list_active_sequences(
+    request: Request, offset: int = 0, limit: int = 50
+) -> PaginatedResponse[dict]:
     """List all active outreach sequences."""
     container = request.app.state.container
     query = ListActiveSequencesQuery()
     results = await container.list_active_sequences_handler.execute(query)
-    return [r.model_dump() for r in results]
+    all_items = [r.model_dump() for r in results]
+    total = len(all_items)
+    return PaginatedResponse(
+        items=all_items[offset : offset + limit],
+        total=total,
+        offset=offset,
+        limit=limit,
+    )
 
 
 @router.get("/{sequence_id}")

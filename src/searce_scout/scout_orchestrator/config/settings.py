@@ -61,4 +61,7 @@ class ScoutSettings(BaseSettings):
     # -- API key for the presentation layer -------------------------------------
     api_key: str = ""
 
+    # -- CORS allowed origins ---------------------------------------------------
+    allowed_origins: list[str] = []
+
     model_config = {"env_prefix": "SCOUT_"}
