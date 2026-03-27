@@ -1,0 +1,98 @@
+[
+  {
+    "id": "cs-001",
+    "title": "Global Retailer Migrates from AWS to GCP",
+    "industry": "Retail",
+    "offering": "Cloud Migration",
+    "client_description": "Fortune 500 retail chain with 2000+ stores",
+    "challenge": "Legacy AWS infrastructure with high operational costs and limited scalability during peak seasons",
+    "solution": "Full-stack migration to GCP with GKE for containerized workloads and Cloud Spanner for global inventory",
+    "outcome_summary": "40% reduction in cloud spend, 99.99% uptime during Black Friday",
+    "metric": "40% cost reduction",
+    "technologies": ["GKE", "Cloud Spanner", "BigQuery", "Cloud CDN"]
+  },
+  {
+    "id": "cs-002",
+    "title": "Insurance Company Builds AI Claims Processing",
+    "industry": "Insurance",
+    "offering": "Applied AI / GenAI",
+    "client_description": "Top 20 insurance provider processing 500K claims/year",
+    "challenge": "Manual claims processing taking 14 days average, high error rates, poor customer satisfaction",
+    "solution": "GenAI-powered claims triage using Vertex AI with Document AI for extraction and Gemini for assessment",
+    "outcome_summary": "Claims processing reduced from 14 days to 2 days, 85% automation rate",
+    "metric": "85% automation rate",
+    "technologies": ["Vertex AI", "Document AI", "Gemini", "Cloud Functions"]
+  },
+  {
+    "id": "cs-003",
+    "title": "Telecom Giant Modernizes Data Platform",
+    "industry": "Telecommunications",
+    "offering": "Data & Analytics",
+    "client_description": "National telecom operator with 50M subscribers",
+    "challenge": "Siloed data across legacy Teradata and Oracle systems, inability to perform real-time customer analytics",
+    "solution": "Unified data lakehouse on BigQuery with Dataflow for real-time streaming and Looker for self-service BI",
+    "outcome_summary": "Real-time customer insights enabled, 60% faster reporting, $2M annual savings on legacy licenses",
+    "metric": "60% faster reporting",
+    "technologies": ["BigQuery", "Dataflow", "Looker", "Pub/Sub"]
+  },
+  {
+    "id": "cs-004",
+    "title": "Manufacturing Firm Adopts Google Workspace",
+    "industry": "Manufacturing",
+    "offering": "Future of Work",
+    "client_description": "Global manufacturer with 15,000 employees across 12 countries",
+    "challenge": "Remote work friction with on-prem Exchange and SharePoint, collaboration gaps between factory and office workers",
+    "solution": "Full Google Workspace deployment with Gemini for Workspace, AppSheet for frontline worker apps",
+    "outcome_summary": "90% employee adoption in 3 months, 35% reduction in IT support tickets",
+    "metric": "35% IT ticket reduction",
+    "technologies": ["Google Workspace", "Gemini for Workspace", "AppSheet", "Chrome Enterprise"]
+  },
+  {
+    "id": "cs-005",
+    "title": "FinTech Startup Scales on GCP from Day One",
+    "industry": "Financial Services",
+    "offering": "Cloud Migration",
+    "client_description": "Series B fintech with rapid growth trajectory",
+    "challenge": "On-prem colocation couldn't keep pace with 10x user growth, compliance requirements for financial data",
+    "solution": "Cloud-native architecture on GCP with Cloud Run, Cloud SQL, and Assured Workloads for compliance",
+    "outcome_summary": "Scaled from 100K to 1M users without downtime, achieved SOC 2 compliance",
+    "metric": "10x scale achieved",
+    "technologies": ["Cloud Run", "Cloud SQL", "Assured Workloads", "Cloud Armor"]
+  },
+  {
+    "id": "cs-006",
+    "title": "Healthcare Provider Deploys Predictive Analytics",
+    "industry": "Healthcare",
+    "offering": "Applied AI / GenAI",
+    "client_description": "Regional hospital network with 20 facilities",
+    "challenge": "Patient readmission rates above industry average, no predictive capabilities for resource planning",
+    "solution": "ML pipeline on Vertex AI for readmission risk prediction, integrated with EHR via Healthcare API",
+    "outcome_summary": "22% reduction in 30-day readmissions, $8M annual savings",
+    "metric": "22% readmission reduction",
+    "technologies": ["Vertex AI", "Healthcare API", "BigQuery ML", "Cloud Healthcare"]
+  },
+  {
+    "id": "cs-007",
+    "title": "E-commerce Platform Migrates from Azure to GCP",
+    "industry": "E-commerce",
+    "offering": "Cloud Migration",
+    "client_description": "Mid-market e-commerce platform with $200M GMV",
+    "challenge": "Azure costs escalating, need for better ML infrastructure for recommendation engine",
+    "solution": "Migration to GCP with focus on Vertex AI for recommendations and Cloud Bigtable for real-time user profiles",
+    "outcome_summary": "30% infrastructure cost reduction, 25% improvement in recommendation accuracy",
+    "metric": "30% cost reduction",
+    "technologies": ["Vertex AI", "Cloud Bigtable", "GKE", "Cloud CDN"]
+  },
+  {
+    "id": "cs-008",
+    "title": "Logistics Company Builds Real-Time Fleet Analytics",
+    "industry": "Logistics",
+    "offering": "Data & Analytics",
+    "client_description": "National logistics company with 5,000 vehicles",
+    "challenge": "Batch-only analytics on fleet data, no real-time visibility into route optimization or fuel consumption",
+    "solution": "Real-time streaming pipeline with Pub/Sub, Dataflow, and BigQuery for fleet telemetry analysis",
+    "outcome_summary": "Real-time fleet visibility, 15% fuel cost reduction, 20% improvement in delivery times",
+    "metric": "15% fuel savings",
+    "technologies": ["Pub/Sub", "Dataflow", "BigQuery", "Maps Platform"]
+  }
+]

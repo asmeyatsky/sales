@@ -1,0 +1,76 @@
+{
+  "offerings": [
+    {
+      "name": "Cloud Migration",
+      "target_personas": [
+        {
+          "titles": ["CTO", "Chief Technology Officer", "VP of Infrastructure", "VP Infrastructure", "VP Engineering", "Head of Infrastructure", "Director of Infrastructure", "Director of IT"],
+          "seniority": ["C_SUITE", "VP", "DIRECTOR", "HEAD"],
+          "departments": ["ENGINEERING", "IT_INFRASTRUCTURE", "EXECUTIVE"],
+          "pain_points": [
+            "Legacy infrastructure debt",
+            "High on-premises costs",
+            "Scalability limitations",
+            "Vendor lock-in with AWS or Azure",
+            "Compliance and security concerns with aging systems",
+            "Inability to adopt cloud-native architectures"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Applied AI / GenAI",
+      "target_personas": [
+        {
+          "titles": ["Head of Innovation", "Chief Data Officer", "CDO", "VP of AI", "VP of Data Science", "Head of AI", "Director of Innovation", "Chief AI Officer", "Head of Machine Learning"],
+          "seniority": ["C_SUITE", "VP", "DIRECTOR", "HEAD"],
+          "departments": ["DATA", "INNOVATION", "ENGINEERING"],
+          "pain_points": [
+            "Slow product development cycles",
+            "Manual and repetitive operations",
+            "Data silos preventing AI adoption",
+            "Lack of ML infrastructure",
+            "Difficulty operationalizing AI models",
+            "No generative AI strategy"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Data & Analytics",
+      "target_personas": [
+        {
+          "titles": ["Head of Data", "Lead Data Architect", "Chief Data Officer", "CDO", "VP of Data", "Director of Analytics", "Head of Analytics", "Data Engineering Manager", "Head of Business Intelligence"],
+          "seniority": ["C_SUITE", "VP", "DIRECTOR", "HEAD", "MANAGER"],
+          "departments": ["DATA", "ENGINEERING"],
+          "pain_points": [
+            "Inability to gain real-time insights",
+            "BigQuery migration needs",
+            "Legacy data warehouse limitations (Teradata, Oracle, Netezza)",
+            "Data quality and governance challenges",
+            "High cost of existing analytics platforms",
+            "No self-service BI capabilities"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Future of Work",
+      "target_personas": [
+        {
+          "titles": ["Head of HR", "CHRO", "Chief Human Resources Officer", "CIO", "Chief Information Officer", "VP of IT", "Head of Digital Workplace", "Director of IT", "Head of Employee Experience"],
+          "seniority": ["C_SUITE", "VP", "DIRECTOR", "HEAD"],
+          "departments": ["HR", "IT_INFRASTRUCTURE", "EXECUTIVE"],
+          "pain_points": [
+            "Remote work friction",
+            "Google Workspace adoption challenges",
+            "Collaboration gaps between teams",
+            "Legacy email and productivity tools",
+            "Security concerns with distributed workforce",
+            "Frontline worker digital enablement"
+          ]
+        }
+      ]
+    }
+  ]
+}

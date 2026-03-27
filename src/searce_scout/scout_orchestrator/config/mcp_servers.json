@@ -1,0 +1,32 @@
+[
+  {
+    "name": "account-intelligence",
+    "module": "searce_scout.account_intelligence.infrastructure.mcp_server.server",
+    "description": "Account research, signal detection, tech stack auditing"
+  },
+  {
+    "name": "stakeholder-discovery",
+    "module": "searce_scout.stakeholder_discovery.infrastructure.mcp_server.server",
+    "description": "Stakeholder discovery, persona matching, contact validation"
+  },
+  {
+    "name": "messaging",
+    "module": "searce_scout.messaging.infrastructure.mcp_server.server",
+    "description": "Personalised message generation, tone adjustment, message preview"
+  },
+  {
+    "name": "outreach",
+    "module": "searce_scout.outreach.infrastructure.mcp_server.server",
+    "description": "Multi-step outreach sequence execution, reply processing, sequence lifecycle"
+  },
+  {
+    "name": "presentation-gen",
+    "module": "searce_scout.presentation_gen.infrastructure.mcp_server.server",
+    "description": "AI-powered sales deck generation and slide rendering"
+  },
+  {
+    "name": "crm-sync",
+    "module": "searce_scout.crm_sync.infrastructure.mcp_server.server",
+    "description": "Bidirectional CRM synchronisation, field mapping, conflict resolution"
+  }
+]
